@@ -13,7 +13,7 @@
 		"csv": "^5.5.0",
 		"csv-parse": "^4.16.0",
 		"express": "^4.17.1",
-		"jest": "^27.0.4",
+		"jest": "^27.0.6",
 		"joi": "^17.4.0",
 		"knex": "^0.95.6",
 		"pg": "^8.6.0",
@@ -25,7 +25,7 @@
 	"scripts": {
 		"build": "tsc",
 		"start": "ts-node ./src/server.ts",
-		"test": "jest --config=./src/jest.config.ts"
+		"test": "./src/scripts/create_db.sh && jest --config=./src/jest.config.ts"
 	},
 	"engines": {
 		"node": ">= 14"

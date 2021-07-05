@@ -2,8 +2,9 @@ import MarketPlace from '../models/domain/market-place-domain';
 import UpdateMarketPlaceDto from '../models/dto/update-market-place-dto';
 import Exception from '../models/dto/exception';
 import pg from '../db/pg';
+import IMarketPlaceRepository from '../interfaces/repositories/market-place-repository-interface';
 
-export default class MarketPlaceRepository {
+export default class MarketPlaceRepository implements IMarketPlaceRepository {
 	public async getAll(q: string): Promise<MarketPlace[]> {
 		const markets: MarketPlace[] = await pg('market-places')
 			.where('market-places.distrito', 'ilike' , `%${q}%`)

@@ -1,14 +1,15 @@
-import MarketPlaceRepository from '../repositories/market-place-repository';
+import IMarketPlaceRepository from '../interfaces/repositories/market-place-repository-interface';
 import MarketPlace from '../models/domain/market-place-domain';
 import UpdateMarketPlaceDto from '../models/dto/update-market-place-dto';
 import { updateMarketPlaceDtoValidator } from '../validators/update-market-place-dto-validator';
 import Exception from '../models/dto/exception';
+import IMarketPlaceService from '../interfaces/services/market-place-service-interface';
 
-export default class MarketPlaceService {
+export default class MarketPlaceService implements IMarketPlaceService {
 
-	marketPlaceRepository: MarketPlaceRepository;
+	marketPlaceRepository: IMarketPlaceRepository;
 
-	constructor(marketPlaceRepository: MarketPlaceRepository) {
+	constructor(marketPlaceRepository: IMarketPlaceRepository) {
 		this.marketPlaceRepository = marketPlaceRepository
 	}
 

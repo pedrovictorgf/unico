@@ -10,23 +10,12 @@ export default class App {
 		this.app = express()
 		this.port = appInit.port
 		this.routes(appInit.controllers)
-		this.setupErrorMidleware()
 	}
 
 	private routes(controllers: Controller[]): void {
 		for(let controller of controllers) {
 			this.app.use(controller.path, controller.router);
 		}
-	}
-
-	private setupErrorMidleware() {
-		this.app.use((e: Error, _: Request, res: Response, __: NextFunction) => {
-			if(e instanceof Exception) {
-				res.status(e.status).json(e);
-			} else {
-				res.status(500).json(new Exception(500, "Internal Server Error"))
-			}
-		});
 	}
 
 	public listen(): void {
