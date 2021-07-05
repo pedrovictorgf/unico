@@ -3,6 +3,7 @@ import UpdateMarketPlaceDto from '../models/dto/update-market-place-dto';
 import Exception from '../models/dto/exception';
 import pg from '../db/pg';
 import IMarketPlaceRepository from '../interfaces/repositories/market-place-repository-interface';
+import logger from '../utils/logger';
 
 export default class MarketPlaceRepository implements IMarketPlaceRepository {
 	public async getAll(q: string): Promise<MarketPlace[]> {
@@ -20,20 +21,23 @@ export default class MarketPlaceRepository implements IMarketPlaceRepository {
 
 		if(market.length > 0)
 			return market[0];
+			
 		throw new Exception(404, 'Market not found');
 	}
 
 	public async deleteByRegisterCode(registerCode: string): Promise<void> {
 		const result = await pg('market-places').where({registro: registerCode}).del();
 
-		if(result == 0)
-			throw new Exception(404, 'No market place with this register code')
+		if(result == 0) {
+			throw new Exception(404, 'No market place with this register code');
+		}
 	}
 
 	public async update(id: string, updateMarketPlaceDto: UpdateMarketPlaceDto): Promise<void> {
 		const result = await pg('market-places').where({id}).update(updateMarketPlaceDto);
-		
-		if(result == 0)
+
+		if(result == 0) {
 			throw new Exception(404, 'No market place with this id')
+		}
 	}
 }
