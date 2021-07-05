@@ -1,7 +1,7 @@
 {
-	"name": "RepoScrapper",
+	"name": "Market Place",
 	"version": "1.0.0",
-	"description": "Scraps a public github repo for files information",
+	"description": "Holds information about Sao Paulo's free market places",
 	"main": "server.js",
 	"dependencies": {
 		"@types/express": "^4.17.12",
