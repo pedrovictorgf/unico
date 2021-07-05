@@ -29,32 +29,29 @@ sudo ./start.sh
 Now the application is running on localhost:3000, and you should be able to access 1 URL:
 
 ### GET localhost:3000/market-places
-	```json
-[
-    {
-        "id": 1,
-        "long": "-46550164",
-        "lat": "-23558733",
-        "setcens": "355030885000091",
-        "areap": "3550308005040",
-        "coddist": 87,
-        "distrito": "VILA FORMOSA",
-        "codsubpref": 26,
-        "subprefe": "ARICANDUVA-FORMOSA-CARRAO",
-        "regiao5": "Leste",
-        "regiao8": "Leste 1",
-        "nome_feira": "VILA FORMOSA",
-        "registro": "4041-0",
-        "logradouro": "RUA MARAGOJIPE",
-        "numero": "S/N",
-        "bairro": "VL FORMOSA",
-        "referencia": "TV RUA PRETORIA\r"
-    }
-]
-	```
+	[
+    	{
+        	"id": 1,
+        	"long": "-46550164",
+        	"lat": "-23558733",
+        	"setcens": "355030885000091",
+        	"areap": "3550308005040",
+        	"coddist": 87,
+        	"distrito": "VILA FORMOSA",
+        	"codsubpref": 26,
+        	"subprefe": "ARICANDUVA-FORMOSA-CARRAO",
+        	"regiao5": "Leste",
+        	"regiao8": "Leste 1",
+        	"nome_feira": "VILA FORMOSA",
+        	"registro": "4041-0",
+        	"logradouro": "RUA MARAGOJIPE",
+        	"numero": "S/N",
+        	"bairro": "VL FORMOSA",
+        	"referencia": "TV RUA PRETORIA\r"
+    	}
+	]
 
 ### GET localhost:3000/market-places/id
-	```json
  	{
         "id": 1,
         "long": "-46550164",
@@ -74,13 +71,11 @@ Now the application is running on localhost:3000, and you should be able to acce
         "bairro": "VL FORMOSA",
         "referencia": "TV RUA PRETORIA\r"
 	}
-	```
 
 ### DELETE localhost:3000/market-places/registerCode
 
 ### PUT localhost:3000/market-places/id
 	Example request payload:
-	```json
 	{
     	"long": "-46550164",
     	"lat": "-23558733",
@@ -98,7 +93,6 @@ Now the application is running on localhost:3000, and you should be able to acce
     	"bairro": "VL FORMOSA",
     	"referencia": "teste"
 	}
-	```
 
 ### Unit tests
 
