@@ -2,7 +2,11 @@ import knex from 'knex';
 import config from '../knexfile'
 
 
-const conn = process.env['ON_HEROKU'] !== 'TRUE' ? 
+const conn = process.env['NODE_ENV'] === 'production' ? 
+knex({
+	client: "pg",
+	connection: `${process.env['DATABASE_URL']}`
+}):
 knex({
 	client: "pg",
     connection: {
@@ -11,10 +15,6 @@ knex({
 		password:'postgres',
 		database:'postgres'
 	}
-}) :
-knex({
-	client: "pg",
-	connection: `${process.env['DATABASE_URL']}`
 })
 
 let dbsWeShouldHave = ['unico'];
