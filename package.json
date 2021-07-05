@@ -23,7 +23,7 @@
 	"scripts": {
 		"build": "tsc",
 		"start": "ts-node ./src/server.ts",
-		"test": "./src/scripts/create_db.sh && jest --config=./src/jest.config.ts"
+		"test": "./src/scripts/create_db.sh && jest --config=./src/jest.config.ts --forceExit"
 	},
 	"engines": {
 		"node": ">= 14"
