@@ -1,6 +1,8 @@
 import MarketPlaceRepository from '../repositories/market-place-repository';
 import MarketPlace from '../models/domain/market-place-domain';
 import UpdateMarketPlaceDto from '../models/dto/update-market-place-dto';
+import { updateMarketPlaceDtoValidator } from '../validators/update-market-place-dto-validator';
+import Exception from '../models/dto/exception';
 
 export default class MarketPlaceService {
 
@@ -23,6 +25,12 @@ export default class MarketPlaceService {
 	}
 
 	public async updateMarketPlace(id: string, updateMarketPlaceDto: UpdateMarketPlaceDto): Promise<void> {
-		return this.marketPlaceRepository.update(id, updateMarketPlaceDto);
+		const { error } = updateMarketPlaceDtoValidator.validate(updateMarketPlaceDto);
+
+		if(!error) {
+			return this.marketPlaceRepository.update(id, updateMarketPlaceDto);
+		} else {
+			throw new Exception(400, error.message);
+		}
 	}
 }
