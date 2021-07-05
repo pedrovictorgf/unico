@@ -2,7 +2,8 @@ import knex from 'knex';
 import config from '../knexfile'
 
 
-const conn = knex({
+const conn = process.env['ON_HEROKU'] !== 'TRUE' ? 
+knex({
 	client: "pg",
     connection: {
 		host:'db',
@@ -10,7 +11,11 @@ const conn = knex({
 		password:'postgres',
 		database:'postgres'
 	}
- })
+}) :
+knex({
+	client: "pg",
+	connection: `${process.env['DATABASE_URL']}`
+})
 
 let dbsWeShouldHave = ['unico'];
 

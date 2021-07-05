@@ -9,5 +9,9 @@ export default {
 		password:'postgres',
 		database:'unico'
 	}
+  },
+  heroku: {
+  	client: "pg",
+  	connection: `${process.env['DATABASE_URL']}`
   }
 };
