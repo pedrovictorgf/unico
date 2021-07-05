@@ -3,10 +3,8 @@ import configMap from '../knexfile';
 
 let config;
 
-
 if(process.env['NODE_ENV'] === 'production') {
-	console.log("AQUI CARAMBA")
-	config = configMap.heroku
+	config = configMap.production
 } else {
 	config = configMap.development
 }
