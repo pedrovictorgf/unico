@@ -26,7 +26,7 @@ sudo ./start.sh
 
 ```
 
-Now the application is running on localhost:3000, and you should be able to access 1 URL:
+Now the application is running on localhost:3000, and you should be able to access 4 URL's:
 
 ### GET localhost:3000/market-places
 	[
