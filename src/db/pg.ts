@@ -1,12 +1,15 @@
 import knex from 'knex'
-import config from '../knexfile';
+import configMap from '../knexfile';
 
-let pg;
+let config;
+
 
 if(process.env['NODE_ENV'] === 'production') {
-	pg = knex(config.heroku)
+	config = configMap.heroku
 } else {
-	pg = knex(config.development)
+	config = configMap.development
 }
+
+const pg  = knex(config)
 
 export default pg;
