@@ -3,7 +3,7 @@ import winston from 'winston';
 const logConfiguration = {
 		'transports': [
 			new winston.transports.Console(),
-			new winston.transports.File({ filename: 'logs/stdout.log'})
+			new winston.transports.File({ filename: 'logs/stdout.log', maxsize: 10000 }),
 		],
 		'format': winston.format.combine(
 			winston.format.timestamp({ format: 'MMM-DD-YYYY HH:mm:ss'}),
@@ -14,3 +14,4 @@ const logConfiguration = {
 const logger: winston.Logger = winston.createLogger(logConfiguration);
 
 export default logger;
+
